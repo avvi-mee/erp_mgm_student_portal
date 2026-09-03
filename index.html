@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MGM University | Student ERP</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="app">
+
+  <!-- LOGIN -->
+  <section id="loginView" class="login-page">
+    <div class="login-overlay"></div>
+    <div class="login-content">
+      <div class="login-welcome">
+        <img src="assets/mgm-logo.png" class="login-logo" alt="MGM University">
+        <h1>Mahatma Gandhi Mission</h1>
+        <p class="quote">Strength does not come from winning. When you go through hardships and decide not to surrender. That is strength.<br>- Mahatma Gandhi</p>
+        <p>Welcome to MGM University and the inspirations of the Mahatma, everyday, to move forward with resolve.</p>
+      </div>
+      <div class="login-box">
+        <h2>Welcome! Please login to continue.</h2>
+        <input id="email" type="email" placeholder="Enter username" autocomplete="username">
+        <div class="password-wrap">
+          <input id="password" type="password" placeholder="Enter password" autocomplete="current-password">
+          <button id="togglePass" class="eye" type="button">◉</button>
+        </div>
+        <button id="loginBtn" class="login-btn">Login</button>
+        <div id="loginError" class="login-error"></div>
+        <a href="#" id="forgot">Forgot password?</a>
+      </div>
+    </div>
+    <div class="login-footer"><span>Support</span><b>Powered by JUNO Campus</b></div>
+  </section>
+
+  <!-- ERP -->
+  <section id="erpView" class="hidden">
+    <header class="topbar">
+      <div class="brand-area">
+        <div class="juno-logo">JUNO<small>CAMPUS</small></div>
+        <img src="assets/mgm-logo.png" class="header-mgm-logo" alt="MGM University">
+        <button class="top-icon" data-action="announcement" title="Announcements">⚑</button>
+        <button class="top-icon" data-action="qr" title="QR">▦</button>
+        <button class="top-icon" data-action="external" title="External link">↗</button>
+      </div>
+      <div class="user-area">
+        <div class="user-name">Atharva Sambhaji Chavan<br><small>Student</small></div>
+        <img src="assets/student-photo.jpg" class="avatar" alt="Student photo">
+        <button class="top-icon" data-action="settings">⚙</button>
+      </div>
+    </header>
+
+    <nav class="nav">
+      <button class="nav-item" data-menu="Institute">Institute⌄</button>
+      <button class="nav-item" data-menu="Personal">Personal⌄</button>
+      <button class="nav-item" data-menu="Schedules">Academic Schedules⌄</button>
+      <button class="nav-item" data-menu="Academic">Academic Functions⌄</button>
+      <button class="nav-item" data-menu="Events">Events⌄</button>
+      <button class="nav-item" data-menu="Facilities">Facilities⌄</button>
+      <button class="nav-item" data-menu="Communication">Communication⌄</button>
+      <button class="nav-item" data-menu="Planner">Planner⌄</button>
+      <div id="menuLayer"></div>
+    </nav>
+
+    <main id="main"></main>
+
+    <footer class="footer">
+      <span>Powered by JUNO Campus</span>
+      <div class="juno-logo footer-logo">JUNO<small>CAMPUS</small></div>
+    </footer>
+  </section>
+</div>
+
+<div id="toast" class="toast"></div>
+<div id="modal" class="modal hidden"><div class="modal-card"><button id="closeModal" class="modal-close">×</button><div id="modalBody"></div></div></div>
+<script src="app.js"></script>
+</body>
+</html>
