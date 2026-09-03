@@ -51,15 +51,27 @@ document.querySelectorAll(".nav-item").forEach(btn=>{
  btn.onclick=e=>{e.stopPropagation(); document.querySelectorAll(".menu").forEach(x=>x.remove()); const name=btn.dataset.menu; const menu=document.createElement("div");menu.className="menu";menu.style.left=btn.offsetLeft+"px";
  menus[name].forEach((item,i)=>{
    const b=document.createElement("button");b.className="menu-item";b.textContent=item;
-   if(name==="Academic"&&item==="University Exam/Result"){b.textContent="University Exam/Result  ›";b.onmouseenter=()=>showSub(b)}
-   else b.onclick=()=>menuAction(item);
+   if(name==="Academic"&&item==="University Exam/Result"){
+     b.classList.add("has-submenu");
+     b.onmouseenter=()=>showSub(b);
+     b.onclick=(e)=>{e.stopPropagation();showSub(b)};
+   } else b.onclick=()=>menuAction(item);
    menu.appendChild(b);
  });document.getElementById("menuLayer").appendChild(menu);
  };
 });
 function showSub(parent){
- document.querySelectorAll(".submenu").forEach(x=>x.remove());const sub=document.createElement("div");sub.className="submenu";
- ["Autonomous Student Result","Photocopy/Reval Application","Autonomous University Exam Form"].forEach(x=>{const b=document.createElement("button");b.className="menu-item";b.textContent=x;b.onclick=()=>menuAction(x);sub.appendChild(b)});parent.appendChild(sub);
+ document.querySelectorAll(".submenu").forEach(x=>x.remove());
+ const sub=document.createElement("div");
+ sub.className="submenu";
+ ["Autonomous Student Result","Photocopy/Reval Application","Autonomous University Exam Form"].forEach(x=>{
+   const b=document.createElement("button");
+   b.className="menu-item";
+   b.textContent=x;
+   b.onclick=(e)=>{e.stopPropagation();menuAction(x)};
+   sub.appendChild(b);
+ });
+ parent.appendChild(sub);
 }
 document.addEventListener("click",()=>document.querySelectorAll(".menu").forEach(x=>x.remove()));
 
